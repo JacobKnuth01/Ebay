@@ -189,7 +189,7 @@ def getItemAtPrice2(items, hi, l):
 
 
 def getImage(url):
-    c = requests.get(url, headers=h)
+    c = requests.get(url)
     raw = c.content
     image = PIL.Image.open(io.BytesIO(raw))
     image = PIL.ImageTk.PhotoImage(image)
@@ -222,7 +222,7 @@ def searchCommand():
     s = search.get()
     url = "https://www.ebay.com/sch/i.html?_from=R40&_nkw=" + s + "&_sacat=0&rt=nc&LH_BIN=1"
     s = requests.Session()
-    r = s.get(url, headers=h)
+    r = s.get(url)
     soup = bs4.BeautifulSoup(r.content, "html.parser")
     r = soup.find_all(class_="s-item")
     items = getInfo(r)
