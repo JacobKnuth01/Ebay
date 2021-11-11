@@ -154,7 +154,7 @@ def getItemAtPrice2(items, hi, l):
             if display:
 
                 if i.image != "Unavalable":
-                    r = requests.get(i.image, headers=h)
+                    r = requests.get(i.image)
                     image = r.content
                     image = PIL.Image.open(io.BytesIO(image))
                     image = PIL.ImageTk.PhotoImage(image)
